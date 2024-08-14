@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Konversi Nilai</title>
+</head>
+<body>
+    <script>
+        let nilai = prompt(`Program Konversi Nilai
+        Input Nilai: `);
+        // Fungsi konversi nilai
+        function convertNilai(nilai) {
+            // Validasi input nilai
+            if (nilai >=80 && nilai <=100) {
+                alert("Nilai Anda A");
+            }else if (nilai >=60 && nilai <80) {
+                alert("Nilai Anda B");
+            }else if (nilai >=40 && nilai <60) {
+                alert("Nilai Anda C");
+            }else if (nilai >=20 && nilai <40) {
+                alert("Nilai Anda D");
+            }else if (nilai >=0 && nilai <20) {
+                alert("Nilai Anda E");
+            }else{
+                alert("Input nilai harus berupa angka antara 0 - 100");
+            }
+        }
+        // Memanggil fungsi convertNilai
+        convertNilai(nilai);
+    </script>
+</body>
+</html>
