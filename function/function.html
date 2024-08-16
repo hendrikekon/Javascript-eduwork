@@ -32,11 +32,13 @@ Selamat Bermain!!!`);
             
             rules = peraturan(tebakanPlayer1, tebakanPlayer2);
             angkaRandom = acak();
-            //mengecek kecocokan angka
+            
+            //cek rules
             if (!rules){
                 alert("Input tidak valid, ulangi ronde ini.");
                 continue;
             }else{
+                //cek kecocokan angka
                 if (parseInt(tebakanPlayer1) === angkaRandom) {
                     scoreplayer1++;
                     alert(`Ronde ${ronde}, Player 1 Benar!
@@ -90,12 +92,14 @@ Selamat Bermain!!!`);
             }
 
             ronde++;
+            //main lagi
             if (ronde > 5){
                 lanjut = window.confirm(`Permainan Telah Berakhir
                 apakah anda ingin bermain lagi?`);
                 if (!lanjut){
                     break;
                 }
+            //lanjut ronde
             }else{
                 lanjut = window.confirm(`Lanjut Ronde ${ronde}?`);
                 if (!lanjut){
@@ -127,9 +131,6 @@ Selamat Bermain!!!`);
             }
         }
         
-
-        
-
         //fungsi angka random
         function acak(){
             let anRandom = Math.floor(Math.random() * 3) + 1;
