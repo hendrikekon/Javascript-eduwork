@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Angka</title>
+</head>
+<body>
+    <script>
+        //variabel
+        let tebakanPlayer1;
+        let tebakanPlayer2;
+        let ronde = 1;
+        let scoreplayer1 = 0;
+        let scoreplayer2 = 0;
+        let angkaRandom;
+        let rules;
+        let ulang;
+        let lanjut;
+
+        alert(`Selamat Datang di Game Tebak Angka
+kamu diminta untuk menebak angka 1- 3
+dan kamu akan bermain dalam 5 ronde
+player yang berhasil mengumpulkan tebakan terbanyak akan menang
+Selamat Bermain!!!`);
+
+
+        //memulai permainan
+        while (ronde <= 5) {
+            tebakanPlayer1 = prompt("Player 1: Masukkan Angka");
+            tebakanPlayer2 = prompt("Player 2: Masukkan Angka");
+            
+            rules = peraturan(tebakanPlayer1, tebakanPlayer2);
+            angkaRandom = acak();
+            //mengecek kecocokan angka
+            if (!rules){
+                alert("Input tidak valid, ulangi ronde ini.");
+                continue;
+            }else{
+                if (parseInt(tebakanPlayer1) === angkaRandom) {
+                    scoreplayer1++;
+                    alert(`Ronde ${ronde}, Player 1 Benar!
+                    Angka Random: ${angkaRandom}
+                    ------------------------------
+                    Tebakan:
+                    Player 1: ${tebakanPlayer1}
+                    Player 2: ${tebakanPlayer2}`);
+                } else if (parseInt(tebakanPlayer2) === angkaRandom){
+                    scoreplayer2++;
+                    alert(`Ronde ${ronde}, Player 2 Benar!
+                    Angka Random: ${angkaRandom}
+                    ------------------------------
+                    Tebakan:
+                    Player 1: ${tebakanPlayer1}
+                    Player 2: ${tebakanPlayer2}`);
+                } 
+                else {
+                    alert(`Ronde ${ronde}, Tebakan Player 1 dan Player 2 Salah
+                    Angka Random: ${angkaRandom}
+                    ------------------------------
+                    Tebakan:
+                    Player 1: ${tebakanPlayer1}
+                    Player 2: ${tebakanPlayer2}`);
+                };
+            }
+            
+
+            //papan score
+            alert(`Hasil Permainan:
+            Ronde: ${ronde}
+            ------------------------------
+            Score:
+            Player 1: ${scoreplayer1}
+            Player 2: ${scoreplayer2}`);
+
+            //score akhir 5 ronde
+            if (ronde == 5){
+                alert(`Permainan Telah Berakhir
+                Score:
+                Player 1: ${scoreplayer1}
+                Player 2: ${scoreplayer2}
+                ------------------------------`);
+                if (scoreplayer1 > scoreplayer2){
+                    alert("Player 1 Menang!");
+                } else if (scoreplayer1 < scoreplayer2){
+                    alert("Player 2 Menang!");
+                } else {
+                    alert("Seri!");
+                }
+            }
+
+            ronde++;
+            if (ronde > 5){
+                lanjut = window.confirm(`Permainan Telah Berakhir
+                apakah anda ingin bermain lagi?`);
+                if (!lanjut){
+                    break;
+                }
+            }else{
+                lanjut = window.confirm(`Lanjut Ronde ${ronde}?`);
+                if (!lanjut){
+                    break;
+                }
+            }
+
+        }
+
+        //rules
+        function peraturan(tebakanPlayer1, tebakanPlayer2) {
+            if (isNaN(tebakanPlayer1) || isNaN(tebakanPlayer2)) {
+                alert("Inputan Harus angka 1-3");
+                return false;
+            }else if (tebakanPlayer1 === "" || tebakanPlayer2 === ""){
+                alert("Salah satu Player Belum Menebak");
+                return false;
+            } else if (tebakanPlayer1 < 1 || tebakanPlayer2 < 1){
+                alert("Inputan Player 1 dan Player 2 harus angka antara 1-3");
+                return false;
+            } else if (tebakanPlayer1 > 3 || tebakanPlayer2 > 3){
+                alert("Inputan Player 1 dan Player 2 harus angka antara 1-3");
+                return false;
+            } else if (tebakanPlayer1 === tebakanPlayer2){
+                alert("Tebakan Player 1 dan Player 2 Sama");
+                return false;
+            } else{
+                return true;
+            }
+        }
+        
+
+        
+
+        //fungsi angka random
+        function acak(){
+            let anRandom = Math.floor(Math.random() * 3) + 1;
+            return anRandom;
+            alert(anRandom);
+        };
+        //angkaRandom();
+    </script>
+</body>
+</html>
