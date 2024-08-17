@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dstructuring</title>
+</head>
+<body>
+    <script>
+
+
+        //Buat Array
+        const nama_mahasiswa = ["John", "Jane", "Mike"];
+
+
+        // Buat Object
+        const siswa = {
+            no_induk: 70001,
+            nama: "John Doe",
+            umur: 20,
+            alamat: "New York",
+            gender: "Laki - laki",
+            agama: "Islam",
+            kewarganegaraan:"Amerika"
+        };
+
+
+        //Destructuring Array
+        const [satu, dua, tiga] = nama_mahasiswa;
+        console.log("Destructuring Array");
+        console.log(satu);
+        console.log(dua);
+        console.log(tiga);
+        console.log("\n");
+
+
+        //Destructuring Object
+        const {nama, umur, alamat, gender, agama} = siswa;
+        console.log("Destructuring Object");
+        console.log(nama);
+        console.log(umur);
+        console.log(alamat);
+        console.log(gender);
+        console.log(agama);
+        console.log("\n");
+
+
+        //Destructuring Function
+        function printsiswa({nama, umur, gender}){
+            console.log(`nama: ${nama}`);
+            console.log(`umur: ${umur}`);
+            console.log(`gender: ${gender}`);
+        }
+        console.log("Destructuring Function");
+        printsiswa(siswa);
+        console.log("\n");
+
+
+        //Destructuring Alias
+        const { nama: x, agama: y, kewarganegaraan: z } = siswa; 
+        console.log("Destructuring Alias");
+        console.log(x);
+        console.log(y);
+        console.log(z);
+        console.log("\n");
+
+
+        //Destructuring Default Value
+        const { no_induk, kewarganegaraan, ket = "lulus"} = siswa;
+        console.log("Destructuring Default Value");
+        console.log(no_induk);
+        console.log(kewarganegaraan);
+        console.log(ket);
+        console.log("\n");
+    </script>
+</body>
+</html>
