@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Variabel</title>
+</head>
+<body>
+    <script>
+
+        //Conditional Variabel
+        const nilai = 85;
+        const grade = nilai < 65 ? 'Tidak Lulus' : 'Lulus'; //jika kondisi (<65) benar maka return tidak lulus dan jika kondisi salah (>65) akan return lulus
+        const gradeand = nilai < 65 && 'Tidak Lulus'; //jika kondisi benar return tidak lulus dan jika kondisi salah return false
+        const gradeor = nilai > 65 || 'Remedy'; //jika kondisi benar return true dan jika kondisi salah return remedy
+        console.log(grade);
+        console.log(gradeand);
+        console.log(gradeor);
+
+
+        //Map
+        const ulangan = [
+        {
+            nama: 'John',
+            nilai1: 95,
+            nilai2: 85
+        },
+        {
+            nama: 'Jane',
+            nilai1: 75,
+            nilai2: 80
+        },
+        {
+            nama: 'Michael',
+            nilai1: 85,
+            nilai2: 90
+
+        }
+        ];
+        const lulus = ulangan.map(ulangan => (ulangan.nilai1 + ulangan.nilai2) / 2);
+        console.log(lulus);
+
+
+        //Filter
+        const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const dataGanjil = data.filter(data => data % 2 != 0);
+        console.log(dataGanjil);
+
+
+    </script>
+</body>
+</html>
