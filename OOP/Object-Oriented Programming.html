@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object-Oriented Programming (OOP)</title>
+    <!-- gridjs cdn -->  <!--penting-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Object-Oriented Programming (OOP) Grid JS</h1>
+        <br>
+        <h3>Data Mahasiswa</h3>
+        <div id="app"></div>
+        <br>
+        <h3>Nilai Mahasiswa</h3>
+        <div id="app1"></div>
+    </div>
+    
+    <!-- gridjs cdn--> <!--penting-->
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
+    
+    <script>
+        // note : untuk membuat grid.js harus menggunkan 'new gridjs.Grid' nama variable const nya terserah, tidak pakai pun tidak apa apa. Tapi agar lebih mudah lebih baik pakai.
+        // note: pagination banyaknya data yang di tampilkan pada satu page
+        
+
+        // Table 1 Data Mahasiswa
+        const mahasiswa = new gridjs.Grid({
+            columns: ["NPM","Nama", "Prodi"],
+            data: [
+              ["7704221001","Dimas Agung", "Teknik Kelistrikan"],
+              ["7704221002","Dino Pambudi", "Teknik Kelistrikan"],
+              ["7704221003","Ari Budiman", "Teknik Kelistrikan"],
+              ["7704221004","Tia Ayu", "Teknik Kelistrikan"],
+              ["7704221005","Vira Maharani", "Teknik Kelistrikan"],
+            ],
+            style: {
+                th:{
+                    'text-align': 'center'
+                },
+                td: {
+                  'text-align': 'center'
+                },
+                table: {
+                  'font-size': '15px'
+                }
+            },
+            sort: true,
+            pagination: {
+                limit: 10
+            },
+            search: true
+        }).render(document.getElementById("app"));
+        
+
+
+        // Table 2 Nilai Mahasiswa
+        const nilai = new gridjs.Grid({
+            columns: ["Nama", "Nilai"],
+            data: [
+              ["Dimas Agung", "95"],
+              ["Dino Pambudi", "85"],
+              ["Ari Budiman", "90"],
+              ["Tia Ayu", "75"],
+              ["Vira Maharani", "80"],
+            ],
+            style: {
+                th:{
+                    'text-align': 'center'
+                },
+                td: {
+                  'text-align': 'center'
+                },
+                table: {
+                  'font-size': '15px'
+                }
+              },
+            sort: true,
+            pagination: {
+                limit: 10
+            },
+            search: true
+        }).render(document.getElementById("app1"));
+          
+    </script>
+</body>
+</html>
